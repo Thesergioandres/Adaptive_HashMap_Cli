@@ -38,21 +38,27 @@ python hashmap_cli.py profile --csv workload.csv
 python hashmap_cli.py --mode adaptive run-csv --csv workload.csv --json-summary-out perf.json
 ```
 
-### Metrics Dashboard & Prometheus Endpoint
+## Metrics Dashboard & Prometheus Endpoint
 
 ```bash
 python hashmap_cli.py --mode adaptive run-csv --csv workload.csv --metrics-port 9090
 ```
 
 - Dashboard: `http://localhost:9090/`
-- Metrics: `http://localhost:9090/metrics`
+- Metrics:   `http://localhost:9090/metrics`
 
-Counters include total ops/puts/gets/dels, migrations, compactions, and gauges for load factor, max chaining group length, average Robin Hood probe distance, plus an identifying backend label.
+**Counters include:**
+- total ops/puts/gets/dels
+- migrations, compactions, gauges for load factor
+- max chaining group length, average Robin Hood probe distance
+- an identifying backend label.
 
 ---
 <img width="818" height="865" alt="Screenshot 2025-09-22 at 11 39 47 PM" src="https://github.com/user-attachments/assets/0403f6cf-bfca-4776-ad72-7bada9491cfc" />
 
-**Commands ran in this image: To see demo in action, use the tuned stress workload that leaves enough time to open the dashboard:**
+### Commands ran in this image:
+
+
 ```
   ADAPTIVE_MAX_LF_CHAINING=0.55 ADAPTIVE_MAX_GROUP_LEN=2 \
     python hashmap_cli.py --mode adaptive run-csv \
@@ -61,13 +67,22 @@ Counters include total ops/puts/gets/dels, migrations, compactions, and gauges f
       --json-summary-out results/json/run_stress_big_tuned.json
 ```
 - Open http://localhost:8000/ while it’s running.
-- You’ll see the backend label flip between chaining and robinhood, the mgl chart jump to 2 on the chaining phases, and the ape chart populate once Robin Hood takes over. After the run finishes (about 14 s) run_stress_big_tuned.json confirms migrations triggered.
+- You’ll see the backend label flip between chaining and robinhood, the mgl chart jump to 2 on the chaining phases, and the ape chart populate once Robin Hood takes over.
+- After the run finishes (about 14 s) run_stress_big_tuned.json confirms migrations triggered.
+
+### Reading the Results (Beginner-Friendly)
+  When running the tuned stress workload, the adaptive system automatically transitions from chaining to Robin Hood mode. In this run:
+  -	Backend label flipped to robinhood after thresholds tripped.
+  -	Max group length (mgl) chart dropped to zero, reflecting the move away from chaining.
+  -	Average probe estimate (ape) chart populated with non-zero values once Robin Hood displacement began.
+  -	Ops summary recorded ~570k operations with 3 migrations, confirming the adaptive engine was active.
 
 
 
 ## Validation Checklist
 
-Comprehensive end-to-end coverage lives in **[audit.md](audit.md)**. It is organized into 12 sections plus an optional “demo” flow:
+**Comprehensive end-to-end coverage lives in** **[audit.md](audit.md)**. 
+It is organized into 12 sections plus an optional “demo” flow:
 
 1. CLI sanity checks.
 2. Workload generation (uniform, skewed, adversarial).
@@ -95,7 +110,8 @@ All items were executed successfully on 2025-09-22; checkmarks in [audit.md](aud
 | `w_heavy_adv.csv` | 200k | adaptive | ~2.54k | chaining | 0.89 | [`results/json/perf_heavy_adv.json`](results/json/perf_heavy_adv.json) |
 | `demo.csv` (full demo) | 80k | adaptive | ~5.25k | chaining | 0.86 | [`results/json/demo_perf.json`](results/json/demo_perf.json) |
 
-Observations:
+
+## Observations:
 
 - Throughput ranges from ~1.5k to ~5.2k ops/s for the Python implementation on a single core, increasing with workload locality. These numbers align with expectations for a pure-Python, single-threaded benchmark.
 - No adaptive migrations or compactions were triggered under the audited workloads; load factors and probe estimates stayed within configured guardrails.
@@ -119,7 +135,7 @@ Snapshots now store a callback-free state. On load (including direct pickle usag
 - The dashboards rely on `Chart.js` via CDN; require outbound network access if you open them in a browser.
 - `compact-snapshot` intentionally refuses non-RobinHood snapshots (as seen in the demo flow) to avoid corrupting incompatible formats.
 
-### Forcing an Adaptive Migration (to light up the APE chart)
+## Forcing an Adaptive Migration (to light up the APE chart)
 
 The adaptive wrapper only migrates when chaining trips its health limits. Under many workloads it happily stays in chaining—`ape` stays at 0 and `hashmap_migrations_total` never increments. To demonstrate the Robin Hood leg:
 
@@ -150,7 +166,7 @@ python hashmap_cli.py --mode adaptive run-csv \
 - `hashmap_migrations_total` in `/metrics` and the JSON summary will increment accordingly.
 - If you only want to visualise probe distances, run the same CSV with `--mode fast-lookup` to stay on RobinHoodMap from the start.
 
-#### Threshold overrides without code edits
+## Threshold overrides without code edits
 
 Prefer not to touch the source? Use environment variables to tighten the adaptive thresholds for a single run:
 
