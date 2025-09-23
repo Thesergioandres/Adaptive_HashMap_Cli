@@ -49,6 +49,22 @@ python hashmap_cli.py --mode adaptive run-csv --csv workload.csv --metrics-port 
 
 Counters include total ops/puts/gets/dels, migrations, compactions, and gauges for load factor, max chaining group length, average Robin Hood probe distance, plus an identifying backend label.
 
+---
+<img width="818" height="865" alt="Screenshot 2025-09-22 at 11 39 47 PM" src="https://github.com/user-attachments/assets/0403f6cf-bfca-4776-ad72-7bada9491cfc" />
+
+**Commands ran in this image: To see demo in action, use the tuned stress workload that leaves enough time to open the dashboard:**
+```
+  ADAPTIVE_MAX_LF_CHAINING=0.55 ADAPTIVE_MAX_GROUP_LEN=2 \
+    python hashmap_cli.py --mode adaptive run-csv \
+      --csv data/workloads/stress_big.csv \
+      --metrics-port 8000 \
+      --json-summary-out results/json/run_stress_big_tuned.json
+```
+- Open http://localhost:8000/ while it’s running.
+- You’ll see the backend label flip between chaining and robinhood, the mgl chart jump to 2 on the chaining phases, and the ape chart populate once Robin Hood takes over. After the run finishes (about 14 s) run_stress_big_tuned.json confirms migrations triggered.
+
+
+
 ## Validation Checklist
 
 Comprehensive end-to-end coverage lives in **[audit.md](audit.md)**. It is organized into 12 sections plus an optional “demo” flow:
