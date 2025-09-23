@@ -51,7 +51,7 @@ Counters include total ops/puts/gets/dels, migrations, compactions, and gauges f
 
 ## Validation Checklist
 
-Comprehensive end-to-end coverage lives in **[`audit.md`](#auditmd)**. It is organized into 12 sections plus an optional “demo” flow:
+Comprehensive end-to-end coverage lives in **[audit.md](audit.md)**. It is organized into 12 sections plus an optional “demo” flow:
 
 1. CLI sanity checks.
 2. Workload generation (uniform, skewed, adversarial).
@@ -67,7 +67,7 @@ Comprehensive end-to-end coverage lives in **[`audit.md`](#auditmd)**. It is org
 12. Failure-path verification (ensures compaction refuses incompatible snapshots).
 13. Optional “everything in one go” demo.
 
-All items were executed successfully on 2025-09-22; checkmarks in [`audit.md`](#auditmd) reflect the exact commands run and artifacts produced. Step 6 notes that when splitting CSV files manually, you must keep the header row (`op,key,value`).
+All items were executed successfully on 2025-09-22; checkmarks in [audit.md](audit.md) reflect the exact commands run and artifacts produced. Step 6 notes that when splitting CSV files manually, you must keep the header row (`op,key,value`).
 
 ## Recent Audit Results
 
@@ -93,7 +93,7 @@ Snapshots now store a callback-free state. On load (including direct pickle usag
 ## Reproducing the Audit
 
 1. Ensure Python 3.9+ is installed and you are in the repository root.
-2. Run through [`audit.md`](#auditmd), checking each item. The file already lists the commands with proper line continuations.
+2. Run through [audit.md](audit.md), checking each item. The file already lists the commands with proper line continuations.
 3. For steps that bind HTTP ports, run with appropriate privileges if your environment blocks low-numbered or privileged ports.
 4. Verify that CSV/JSON/snapshot outputs match expectations (names are hard-coded in the checklist so results overwrite existing artifacts).
 
@@ -155,6 +155,6 @@ ADAPTIVE_MAX_LF_CHAINING=0.55 ADAPTIVE_MAX_GROUP_LEN=2 \
 - **Production-ready today.** Snapshot serialization hardened, metrics hooks reattached after load, metrics server lifecycle wrapped in `try/finally` + `server_close()`.
 - **Next up:** C++ port using the same snapshot binary spec (`Adaptive HMAP v1`) so we can benchmark native throughput and keep cross-language compatibility.
 - **Integration roadmap:** publish the binary snapshot schema, wire metrics into Grafana/Prometheus exporters, add JSONL streaming, and let CI pipelines diff latencies across implementations.
-- **Learning track:** explore the [`audit.md`](#auditmd) demo flow for a quick “generate → profile → run → snapshot → verify → repair” walkthrough, then plug in the forthcoming C++ reader once available.
+- **Learning track:** explore the [audit.md](audit.md) demo flow for a quick “generate → profile → run → snapshot → verify → repair” walkthrough, then plug in the forthcoming C++ reader once available.
 
-Contributions or experiments should update [`audit.md`](#auditmd) with new scenarios and attach fresh artifacts so future auditors can reproduce and benchmark the same paths.
+Contributions or experiments should update [audit.md](audit.md) with new scenarios and attach fresh artifacts so future auditors can reproduce and benchmark the same paths.
