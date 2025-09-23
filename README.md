@@ -4,7 +4,7 @@
 **AdaptiveHashMapCLI** is a teaching and benchmarking tool that turns abstract data structures 
 into live, measurable systems.
 
-[`hashmap_cli.py`](#hashmap_clipy) is a batteries-included command-line harness for exploring and validating three hash-map backends:
+[hashmap_cli.py](hashmap_cli.py) is a batteries-included command-line harness for exploring and validating three hash-map backends:
 
 - `TwoLevelChainingMap` – cache-friendly two-level chaining tuned for heavy writes.
 - `RobinHoodMap` – open addressing with tombstone-aware Robin Hood displacement.
