@@ -150,6 +150,7 @@ ADAPTIVE_MAX_LF_CHAINING=0.55 ADAPTIVE_MAX_GROUP_LEN=2 \
 - The latest audit captured `results/json/run_stress_big_tuned.json` (600k ops, three migrations, sustained throughput ~43k ops/s).
 - **Keep the CLI running** while you open `http://localhost:8000/` you’ll see the backend label toggle and the `ape` chart populate in real time.
 
+
 ## Status & Next Steps
 
 - **Production-ready today.** Snapshot serialization hardened, metrics hooks reattached after load, metrics server lifecycle wrapped in `try/finally` + `server_close()`.
@@ -158,3 +159,31 @@ ADAPTIVE_MAX_LF_CHAINING=0.55 ADAPTIVE_MAX_GROUP_LEN=2 \
 - **Learning track:** explore the [audit.md](audit.md) demo flow for a quick “generate → profile → run → snapshot → verify → repair” walkthrough, then plug in the forthcoming C++ reader once available.
 
 Contributions or experiments should update [audit.md](audit.md) with new scenarios and attach fresh artifacts so future auditors can reproduce and benchmark the same paths.
+
+## License 
+
+This project is primarily a **portfolio + research artifact**. The intent is to demonstrate systems design, benchmarking, and adaptive data-structure engineering — not to provide a ready-made commercial library.
+
+- If you are here to **learn from the code** (students, researchers, interview prep, portfolio reviewers): you are welcome to read, fork, and experiment.
+- If you want to **build products, services, or commercial tools** using this code: you need explicit permission from the author.
+
+### Chosen License
+This repository is released under a **dual-purpose license**:
+
+- **GPLv3** — for anyone reusing code in other open-source projects.  
+  GPL ensures derivatives must also remain open, preventing closed-source commercial use without permission.  
+- **Commercial / production use** — requires explicit written consent from the author.
+
+### Copyright Notice
+
+Copyright (c) 2025 Justin Guida.
+All rights reserved.
+
+This code is provided for educational and portfolio purposes only.
+Commercial or production use requires explicit permission.
+
+### Why GPLv3?
+GPLv3 was selected to balance openness and control:
+- It allows others to **study and modify** the code in open contexts.  
+- It prevents companies from silently embedding this into proprietary products without sharing improvements.  
+- It keeps the project focused on its intent: research, education, and portfolio demonstration.
