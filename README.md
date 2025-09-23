@@ -198,6 +198,7 @@ This project is primarily a **portfolio + research artifact**. The intent is to 
 
 - If you are here to **learn from the code** (students, researchers, interview prep, portfolio reviewers): you are welcome to read, fork, and experiment.
 - If you want to **build products, services, or commercial tools** using this code: you need explicit permission from the author.
+- See [LICENSE](./LICENSE) for the full text.
 
 ### Chosen License
 This repository is released under a **dual-purpose license**:
