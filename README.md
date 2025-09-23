@@ -14,10 +14,11 @@ The toolset covers workload generation, profiling, CSV replays with live metrics
 
 ## Repo Contents
 
-- `hashmap_cli.py` – main CLI and data-structure implementations.
-- `audit.md` – step-by-step validation checklist (all commands verified in the latest audit and boxes checked).
+- [hashmap_cli.py](hashmap_cli.py) – main CLI and data-structure mplementations
+- [audit.md](audit.md) – step-by-step validation checklist
+- [perf_*.json](results/json/) – JSON summaries from the most recent audit runs
+- [state.pkl.gz](snapshots/state.pkl.gz) – snapshots generated during the audit
 - `data/` – reusable assets (`workloads/` holds generated CSV workloads; `config/` contains demo overrides).
-- `results/json/` – JSON summaries produced by all recorded runs (perf benchmarks, stress tests, dashboard demos).
 - `snapshots/` – serialized map states referenced in the audit (Robin Hood compaction, adaptive resume, etc.).
 - `docs/data_inventory.md` – file tree with per-artifact explanations and which test produced each file.
 
