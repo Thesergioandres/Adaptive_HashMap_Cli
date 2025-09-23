@@ -162,7 +162,7 @@ Contributions or experiments should update [audit.md](audit.md) with new scenari
 
 ## License 
 
-This project is primarily a **portfolio + research artifact**. The intent is to demonstrate systems design, benchmarking, and adaptive data-structure engineering — not to provide a ready-made commercial library.
+This project is primarily a **portfolio + research artifact**. The intent is to demonstrate systems design, benchmarking, and adaptive data-structure engineering, not to provide a ready-made commercial library.
 
 - If you are here to **learn from the code** (students, researchers, interview prep, portfolio reviewers): you are welcome to read, fork, and experiment.
 - If you want to **build products, services, or commercial tools** using this code: you need explicit permission from the author.
@@ -170,9 +170,9 @@ This project is primarily a **portfolio + research artifact**. The intent is to 
 ### Chosen License
 This repository is released under a **dual-purpose license**:
 
-- **GPLv3** — for anyone reusing code in other open-source projects.  
+- **GPLv3**: for anyone reusing code in other open-source projects.  
   GPL ensures derivatives must also remain open, preventing closed-source commercial use without permission.  
-- **Commercial / production use** — requires explicit written consent from the author.
+- **Commercial / production use**: requires explicit written consent from the author.
 
 ### Copyright Notice
 
