@@ -1,6 +1,8 @@
-# Adaptive Hash Map CLI
+# 	🔑 Adaptive Hash Map CLI
 [![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue)](#) [![Tested](https://img.shields.io/badge/tests-passed-brightgreen)](#) [![Docs](https://img.shields.io/badge/docs-available-blueviolet)](#)
-*AdaptiveHashMapCLI is a teaching and benchmarking tool that turns abstract data structures into live, measurable systems.*
+
+**AdaptiveHashMapCLI** is a teaching and benchmarking tool that turns abstract data structures 
+into live, measurable systems.
 
 [`hashmap_cli.py`](#hashmap_clipy) is a batteries-included command-line harness for exploring and validating three hash-map backends:
 
@@ -126,8 +128,10 @@ python hashmap_cli.py --mode adaptive run-csv \
   --metrics-port 8000 \
   --json-summary-out run_stress.json
 ```
-
-Watch `http://localhost:8000/` during the run: the backend label flips to `chaining -> robinhood (migrating)` and `ape` starts plotting non-zero values once Robin Hood takes over. `hashmap_migrations_total` in `/metrics` and the JSON summary will increment accordingly. If you only want to visualise probe distances, run the same CSV with `--mode fast-lookup` to stay on RobinHoodMap from the start.
+**Watch** `http://localhost:8000/` during the run: 
+- The backend label flips to `chaining -> robinhood (migrating)` and `ape` starts plotting non-zero values once Robin Hood takes over. 
+- `hashmap_migrations_total` in `/metrics` and the JSON summary will increment accordingly.
+- If you only want to visualise probe distances, run the same CSV with `--mode fast-lookup` to stay on RobinHoodMap from the start.
 
 #### Threshold overrides without code edits
 
@@ -141,7 +145,9 @@ ADAPTIVE_MAX_LF_CHAINING=0.55 ADAPTIVE_MAX_GROUP_LEN=2 \
     --json-summary-out results/json/run_stress_big_tuned.json
 ```
 
-With these overrides the workload triggers migrations immediately. The latest audit captured `results/json/run_stress_big_tuned.json` (600k ops, three migrations, sustained throughput ~43k ops/s). Keep the CLI running while you open `http://localhost:8000/`; you’ll see the backend label toggle and the `ape` chart populate in real time.
+**With these overrides** the workload triggers migrations immediately. 
+- The latest audit captured `results/json/run_stress_big_tuned.json` (600k ops, three migrations, sustained throughput ~43k ops/s).
+- **Keep the CLI running** while you open `http://localhost:8000/` you’ll see the backend label toggle and the `ape` chart populate in real time.
 
 ## Status & Next Steps
 
